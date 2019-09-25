@@ -1,23 +1,21 @@
 package com.cgi.repository;
 
 import com.cgi.model.Person;
-import com.cgi.specification.PersonSpecification;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
-import java.util.List;
 
 @Repository
 public class PersonRepoImpl implements PersonRepoCustom{
 
-
-    @Autowired EntityManager entityManager;
+    @PersistenceContext
+    EntityManager entityManager;
 
     @Override
     public Person findByFirstNameAndLastNameCustom(String firstName, String lastName) {
