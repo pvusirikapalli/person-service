@@ -36,6 +36,11 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
+    public void deletePersonById(Integer id) {
+        personRepo.deleteById(id);
+    }
+
+    @Override
     public Person findByFirstNameAndLastName(String firstName, String lastName, String age) {
         return personRepo.findOne(PersonSpecification.hasFirstName(firstName)
                 .and(PersonSpecification.hasLastName(lastName))

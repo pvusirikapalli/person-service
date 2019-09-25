@@ -18,9 +18,14 @@ public class PersonController {
         return personService.getPersonList();
     }
 
-    @PostMapping(value = "/people")
+    @PostMapping(value = "/addPerson")
     public void addPerson(@RequestBody Person person) {
         personService.addPerson(person);
+    }
+
+    @PostMapping(value = "/deletePerson/{id}")
+    public void deletePerson(@PathVariable Integer id) {
+        personService.deletePersonById(id);
     }
 
 //    @GetMapping(value = "/person")
