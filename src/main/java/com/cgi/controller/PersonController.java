@@ -23,23 +23,23 @@ public class PersonController {
         personService.addPerson(person);
     }
 
+    @PostMapping(value = "/deletePerson")
+    public void deletePerson(@RequestBody Person person) {
+        personService.deletePerson(person);
+    }
+
     @PostMapping(value = "/deletePerson/{id}")
-    public void deletePerson(@PathVariable Integer id) {
+    public void deletePersonById(@PathVariable Integer id) {
         personService.deletePersonById(id);
     }
 
 //    @GetMapping(value = "/person")
-//    public Person findPersonByFirstName(@RequestParam(value = "firstName") String firstName){
-//      return personService.findByFirstName(firstName);
-//    }
-
-//    @GetMapping(value = "/person")
-//    public Person findPersonBLastName(@RequestParam(value = "lastName") String lastName){
+//    public Person findPersonBLastName(@RequestParam(value = "lastName") String lastName) {
 //        return personService.findByLastName(lastName);
 //    }
 
     @GetMapping(value = "/person")
     public Person findPersonByFirstNameAndLastName(@RequestParam(value = "firstName") String firstName, @RequestParam(value = "lastName") String lastName, @RequestParam(value = "age") String age) {
-        return personService.findByFirstNameAndLastName(firstName, lastName,age);
+        return personService.findByFirstNameAndLastName(firstName, lastName, age);
     }
 }

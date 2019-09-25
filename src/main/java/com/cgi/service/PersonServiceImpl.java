@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class PersonServiceImpl implements PersonService {
@@ -26,18 +25,19 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
-    public Person findByFirstName(String firstName) {
-        return personRepo.findByFirstName(firstName);
+    public void deletePersonById(Integer id) {
+        personRepo.deleteById(id);
     }
+
+    @Override
+    public void deletePerson(Person person) {
+        personRepo.delete(person);
+    }
+
 
     @Override
     public Person findByLastName(String lastName) {
         return personRepo.findByLastName(lastName);
-    }
-
-    @Override
-    public void deletePersonById(Integer id) {
-        personRepo.deleteById(id);
     }
 
     @Override
